@@ -62,8 +62,8 @@ public class SettingsScript : MonoBehaviour
       a.volume = PlayerPrefs.GetFloat("music");
     }
 
-    int width = Screen.currentResolution.width;
-    int height = Screen.currentResolution.height;
+    int width = PlayerPrefs.GetInt("screenwidth");
+    int height = PlayerPrefs.GetInt("screenheight");
     bool fullscreen = PlayerPrefs.GetInt("fullscreen") > 0 ? true : false;
     Screen.SetResolution(width, height, fullscreen);
   }
