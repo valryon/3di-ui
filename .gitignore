@@ -4,27 +4,22 @@
 Temp/
 Obj/
 UnityGenerated/
-Library/
- 
+/Library/
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
 ExportedObj/
 *.svd
 *.userprefs
-BulletML for Unity/*.csproj
-BulletML for Unity/*.sln
+*.csproj
 *.pidb
-*.suo*.user
+*.suo
+*.sln
+*.user
 *.unityproj
 *.booproj
-[Bb]in/
-[Oo]bj/
-TestResults
-*.suo
-*.user
-*.sln.docstates
- 
+
 # ============ #
 # OS generated #
 # ============ #
@@ -33,11 +28,5 @@ TestResults
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
 ehthumbs.db
 Thumbs.db
-
-game/Build/*
-
-*.sublime-*
-
