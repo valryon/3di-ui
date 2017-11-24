@@ -23,7 +23,7 @@ public class GameUIScript : MonoBehaviour
 
   void Update()
   {
-    scoreLabel.text = game.score.ToString("N6");
+    scoreLabel.text = game.score.ToString("N0");
     timeLabel.text = game.timeLeft.ToString("00");
     ammoSlider.value = game.currentBarrel;
   }

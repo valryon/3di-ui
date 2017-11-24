@@ -15,6 +15,8 @@ public class GameScript : MonoBehaviour
 
   [Header("Gameplay: gun")]
   public GameObject gun;
+  public Sprite gunSpriteNormal;
+  public Sprite gunSpriteShoot;
   public int barrelSize = 6;
   public int currentBarrel;
   public int lives = 3;
@@ -30,6 +32,7 @@ public class GameScript : MonoBehaviour
 
   private float cooldown;
   private Vector3 gunTarget;
+  private bool isReloading;
 
   #endregion
 
@@ -55,7 +58,7 @@ public class GameScript : MonoBehaviour
 
     // Time
     timeLeft -= Time.deltaTime;
-    if(timeLeft <= 0f)
+    if (timeLeft <= 0f)
     {
       GameOver();
     }
@@ -77,16 +80,15 @@ public class GameScript : MonoBehaviour
     Shoot();
   }
 
-  private void UpdateUI()
-  {
-  }
-
   #endregion
 
   #region Gameplay
 
   private void MoveGun()
   {
+    // No movement allowed if reloading
+    if (isReloading) return;
+
     bool moveGun = false;
     Vector3 screenGunTarget = Vector3.zero;
     if (Input.touchCount > 0)
@@ -103,7 +105,7 @@ public class GameScript : MonoBehaviour
     if (moveGun)
     {
       gunTarget = Camera.main.ScreenToWorldPoint(screenGunTarget);
-      gunTarget.y = Mathf.Clamp(gunTarget.y, -4.75f, -2.5f);
+      gunTarget.y = Mathf.Clamp(gunTarget.y - 2.5f, -4.75f, -2.5f);
       gunTarget.z = gun.transform.position.z;
 
       // This is an inexact but popular way to use Lerp
@@ -113,12 +115,89 @@ public class GameScript : MonoBehaviour
 
   private void Shoot()
   {
+    // No shooting allowed if reloading
+    if (isReloading) return;
 
+    bool shoot = false;
+    bool reload = false;
+
+    // Clic
+    shoot |= Input.GetMouseButtonDown(0);
+    reload |= Input.GetMouseButtonDown(1);
+
+    // Tap
+    if (Input.touchCount == 1)
+    {
+      shoot |= Input.touches[0].phase == TouchPhase.Began;
+    }
+    else if (Input.touchCount == 2)
+    {
+      reload = true;
+    }
+
+    if (reload)
+    {
+      isReloading = true;
+      StartCoroutine(ReloadAnimation());
+    }
+    else if (shoot)
+    {
+      if (currentBarrel > 0)
+      {
+        currentBarrel--;
+
+        // Play anim
+        StartCoroutine(ShootAnimation());
+
+        // Raycast
+      }
+      else
+      {
+        SoundBank.Play("no-ammo", Vector3.zero);
+      }
+    }
   }
 
   private IEnumerator ShootAnimation()
   {
-    yield return null;
+    SpriteRenderer s = gun.GetComponent<SpriteRenderer>();
+    s.sprite = gunSpriteShoot;
+    SoundBank.Play("shoot", Vector3.zero);
+    CameraShaker.Shake(0.1f, 0.1f, 2f);
+
+    yield return new WaitForSeconds(0.1f);
+
+    s.sprite = gunSpriteNormal;
+  }
+
+  private IEnumerator ReloadAnimation()
+  {
+    SoundBank.Play("reload", Vector3.zero);
+
+    // Move gun up/down then down/down using linear interpolators
+    Vector3 from = gun.transform.position;
+    Vector3 to = gun.transform.position + new Vector3(0, -3f, 0);
+
+    float duration = 0.25f;
+    float t = 0;
+    while (t < duration)
+    {
+      float delta = (t / duration);
+      gun.transform.position = Vector3.Lerp(from, to, delta);
+      yield return new WaitForEndOfFrame();
+      t += Time.deltaTime;
+    }
+    t = 0;
+    while (t < duration)
+    {
+      float delta = (t / duration);
+      gun.transform.position = Vector3.Lerp(to, from, delta);
+      yield return new WaitForEndOfFrame();
+      t += Time.deltaTime;
+    }
+
+    currentBarrel = barrelSize;
+    isReloading = false;
   }
 
   private void SpawnStuff()
