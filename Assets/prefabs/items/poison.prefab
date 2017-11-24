@@ -90,8 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
-  points: 0
+  points: 200
   isExplosive: 1
+  destroySound: explosion
 --- !u!212 &212085315763977984
 SpriteRenderer:
   m_ObjectHideFlags: 1

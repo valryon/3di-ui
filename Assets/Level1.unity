@@ -1675,6 +1675,7 @@ MonoBehaviour:
   barrelSize: 6
   currentBarrel: 0
   lives: 3
+  hitEffect: {fileID: 1902631586685178, guid: 7cf89cb9fc3677149a66fc436ff03461, type: 2}
   ui: {fileID: 3379992}
   settings: {fileID: 492215429}
   timeLeft: 0
@@ -3001,6 +3002,24 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c4c2c1ee2b2e9a140a102ce3d1758dd3, type: 3}
   - eventName: reload
     clip: {fileID: 8300000, guid: 4a13cf627d3b3aa42b65fb93acb93bbf, type: 3}
+  - eventName: hit
+    clip: {fileID: 8300000, guid: ca9d54de0a9edcd44820bd2d5b6862c8, type: 3}
+  - eventName: hit
+    clip: {fileID: 8300000, guid: c171bf08ccfbb5840b83323fda18974e, type: 3}
+  - eventName: glass-breaking
+    clip: {fileID: 8300000, guid: c5e91ba51800ddf4c871183490db7457, type: 3}
+  - eventName: glass-breaking
+    clip: {fileID: 8300000, guid: 6faac0d506984e941a5af7f76021615b, type: 3}
+  - eventName: explosion
+    clip: {fileID: 8300000, guid: 55937c990d64fb7409c001493bbaf4c0, type: 3}
+  - eventName: explosion
+    clip: {fileID: 8300000, guid: 4ceea9fd93685264086ff055587ebb9b, type: 3}
+  - eventName: woosh
+    clip: {fileID: 8300000, guid: a01bf5ec31a975647aa5842295f571d1, type: 3}
+  - eventName: woosh
+    clip: {fileID: 8300000, guid: 6325ec8fb994b014b9319c4a04a6ac09, type: 3}
+  - eventName: woosh
+    clip: {fileID: 8300000, guid: a0d520314c71f8844a62925f9cb2bee6, type: 3}
 --- !u!4 &1767576194
 Transform:
   m_ObjectHideFlags: 0

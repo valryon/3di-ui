@@ -62,7 +62,8 @@ public class SoundBank : MonoBehaviour
     var sound = Get(name);
     if (sound != null)
     {
-      AudioSource.PlayClipAtPoint(sound.Value.clip, position);
+      AudioSource.PlayClipAtPoint(sound.Value.clip, 
+        new Vector3(position.x, position.y, Camera.main.transform.position.z));
     }
     else
     {

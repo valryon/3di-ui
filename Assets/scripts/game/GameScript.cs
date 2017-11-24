@@ -21,6 +21,9 @@ public class GameScript : MonoBehaviour
   public int currentBarrel;
   public int lives = 3;
 
+  [Header("Effects")]
+  public GameObject hitEffect;
+
   [Header("UI")]
   public GameUIScript ui;
   public GameObject settings;
@@ -84,27 +87,32 @@ public class GameScript : MonoBehaviour
 
   #region Gameplay
 
+  private Vector3 GetScreenGunTarget()
+  {
+    Vector3 screenGunTarget = Vector3.zero;
+    if (Input.touchCount > 0)
+    {
+      screenGunTarget = Input.touches[0].position;
+    }
+    else
+    {
+      screenGunTarget = Input.mousePosition;
+    }
+
+    return screenGunTarget;
+  }
+
   private void MoveGun()
   {
     // No movement allowed if reloading
     if (isReloading) return;
 
-    bool moveGun = false;
-    Vector3 screenGunTarget = Vector3.zero;
-    if (Input.touchCount > 0)
-    {
-      moveGun = true;
-      screenGunTarget = Input.touches[0].position;
-    }
-    else if (Input.mousePresent)
-    {
-      moveGun = true;
-      screenGunTarget = Input.mousePosition;
-    }
+    bool moveGun = (Input.mousePresent || Input.touchCount > 0);
+    Vector3 gunScreentarget = GetScreenGunTarget();
 
     if (moveGun)
     {
-      gunTarget = Camera.main.ScreenToWorldPoint(screenGunTarget);
+      gunTarget = Camera.main.ScreenToWorldPoint(gunScreentarget);
       gunTarget.y = Mathf.Clamp(gunTarget.y - 2.5f, -4.75f, -2.5f);
       gunTarget.z = gun.transform.position.z;
 
@@ -150,6 +158,7 @@ public class GameScript : MonoBehaviour
         StartCoroutine(ShootAnimation());
 
         // Raycast
+        LookForHit();
       }
       else
       {
@@ -200,6 +209,38 @@ public class GameScript : MonoBehaviour
     isReloading = false;
   }
 
+  private void LookForHit()
+  {
+    Vector3 gunScreentarget = GetScreenGunTarget();
+    Vector3 target = Camera.main.ScreenToWorldPoint(gunScreentarget);
+
+    foreach (RaycastHit2D hit in Physics2D.CircleCastAll(target, 0.5f, new Vector2(1, 0)))
+    {
+      ObjectToShootScript ots = hit.transform.GetComponent<ObjectToShootScript>();
+      if (ots != null)
+      {
+        // Particles
+        Instantiate(hitEffect, target, Quaternion.identity);
+
+        // Damage logic
+        if (ots.Damage())
+        {
+          if (ots.isExplosive == false)
+          {
+            score += ots.points;
+          }
+          else
+          {
+            score -= ots.points;
+          }
+        }
+
+        break; // One hit per bullet?
+      }
+    }
+
+  }
+
   private void SpawnStuff()
   {
     // Pick 1 randomly
@@ -210,6 +251,8 @@ public class GameScript : MonoBehaviour
 
     Rigidbody2D rbody2d = objectToShoot.GetComponent<Rigidbody2D>();
     rbody2d.velocity = (new Vector2(Random.Range(-2f, 2f), Random.Range(6, 25)));
+
+    SoundBank.Play("woosh", transform.position);
   }
 
   private void GameOver()

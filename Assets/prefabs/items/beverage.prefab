@@ -92,6 +92,7 @@ MonoBehaviour:
   hp: 1
   points: 5
   isExplosive: 0
+  destroySound: glass-breaking
 --- !u!212 &212624191233023620
 SpriteRenderer:
   m_ObjectHideFlags: 1
