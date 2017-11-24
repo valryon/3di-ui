@@ -9,6 +9,7 @@ public class MenuScript : MonoBehaviour
   void Start()
   {
     settings.SetActive(false);
+    SettingsScript.ApplySettings();
   }
 
   public void ShowSettings()

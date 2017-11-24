@@ -48,6 +48,8 @@ public class CameraShaker : MonoBehaviour
 
   public static void Shake(float duration, float force, float decreaseFactor = 1f)
   {
+    if (PlayerPrefs.HasKey("shakes") && PlayerPrefs.GetInt("shakes") <= 0) return;
+
     if (instance == null)
     {
       instance = Camera.main.gameObject.AddComponent<CameraShaker>();

@@ -47,7 +47,7 @@ public class SoundBank : MonoBehaviour
   #endregion
 
   #region Methods
-    
+
   /// <summary>
   /// Play a sound with spatialization
   /// </summary>
@@ -56,14 +56,14 @@ public class SoundBank : MonoBehaviour
   public static void Play(string name, Vector3 position)
   {
 #if UNITY_EDITOR
-      if (instance == null) instance = FindObjectOfType<SoundBank>();
+    if (instance == null) instance = FindObjectOfType<SoundBank>();
 #endif
 
     var sound = Get(name);
     if (sound != null)
     {
-      AudioSource.PlayClipAtPoint(sound.Value.clip, 
-        new Vector3(position.x, position.y, Camera.main.transform.position.z));
+      AudioSource.PlayClipAtPoint(sound.Value.clip,
+        new Vector3(position.x, position.y, Camera.main.transform.position.z), PlayerPrefs.GetFloat("sound"));
     }
     else
     {

@@ -46,6 +46,9 @@ public class GameScript : MonoBehaviour
     currentBarrel = barrelSize;
     timeLeft = time;
     score = 0;
+
+    SettingsScript.ApplySettings();
+    settings.SetActive(false);
   }
 
   void Update()
