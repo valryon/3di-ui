@@ -93,6 +93,8 @@ MonoBehaviour:
   points: 200
   isExplosive: 1
   destroySound: explosion
+  explosionPrefab: {fileID: 1212686051645898, guid: 80c3007716dd01949998be072396a505,
+    type: 2}
 --- !u!212 &212085315763977984
 SpriteRenderer:
   m_ObjectHideFlags: 1

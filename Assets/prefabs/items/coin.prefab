@@ -90,9 +90,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 2
-  points: 10
+  points: 50
   isExplosive: 0
   destroySound: glass-breaking
+  explosionPrefab: {fileID: 1902631586685178, guid: 621f6635c846eba46b752784ff293222,
+    type: 2}
 --- !u!212 &212298625042206940
 SpriteRenderer:
   m_ObjectHideFlags: 1

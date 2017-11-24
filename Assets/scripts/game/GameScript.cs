@@ -214,7 +214,7 @@ public class GameScript : MonoBehaviour
     Vector3 gunScreentarget = GetScreenGunTarget();
     Vector3 target = Camera.main.ScreenToWorldPoint(gunScreentarget);
 
-    foreach (RaycastHit2D hit in Physics2D.CircleCastAll(target, 0.5f, new Vector2(1, 0)))
+    foreach (RaycastHit2D hit in Physics2D.CircleCastAll(target, 0.5f, new Vector2(0, 0)))
     {
       ObjectToShootScript ots = hit.transform.GetComponent<ObjectToShootScript>();
       if (ots != null)
@@ -250,7 +250,8 @@ public class GameScript : MonoBehaviour
     objectToShoot.transform.position = new Vector3(Random.Range(-7f, 7f), -5.5f, 0f);
 
     Rigidbody2D rbody2d = objectToShoot.GetComponent<Rigidbody2D>();
-    rbody2d.velocity = (new Vector2(Random.Range(-2f, 2f), Random.Range(6, 25)));
+    
+    rbody2d.velocity = (new Vector2(Random.Range(-2f, 2f), Random.Range(11f, 15f)));
 
     SoundBank.Play("woosh", transform.position);
   }

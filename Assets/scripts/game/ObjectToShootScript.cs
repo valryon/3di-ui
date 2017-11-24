@@ -40,7 +40,14 @@ public class ObjectToShootScript : MonoBehaviour
     yield return HitAnimation();
 
     SoundBank.Play(destroySound, transform.position);
-
+    if (isExplosive)
+    {
+      CameraShaker.Shake(1f, 0.75f, 5f);
+    }
+    else
+    {
+      CameraShaker.Shake(0.25f, 0.3f, 3f);
+    }
     if(explosionPrefab != null)
     {
       Instantiate(explosionPrefab, transform.position, transform.rotation);
