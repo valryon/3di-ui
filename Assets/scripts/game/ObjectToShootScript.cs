@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectToShootScript : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class ObjectToShootScript : MonoBehaviour
+{
+  public int hp = 1;
+  public int points = 1;
+  public bool isExplosive = false;
 }
