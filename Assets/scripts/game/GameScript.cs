@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameScript : MonoBehaviour
 {
@@ -24,10 +23,6 @@ public class GameScript : MonoBehaviour
   [Header("Effects")]
   public GameObject hitEffect;
 
-  [Header("UI")]
-  public GameUIScript ui;
-  public GameObject settings;
-
   [HideInInspector]
   public float timeLeft;
   [HideInInspector]
@@ -46,22 +41,10 @@ public class GameScript : MonoBehaviour
     currentBarrel = barrelSize;
     timeLeft = time;
     score = 0;
-
-    SettingsScript.ApplySettings();
-    settings.SetActive(false);
   }
 
   void Update()
   {
-    // Paused? Ignore
-    if (settings.activeInHierarchy) return;
-
-    // Back from pause
-    if (settings.activeInHierarchy == false && Time.timeScale == 0)
-    {
-      Time.timeScale = 1f;
-    }
-
     // Time
     timeLeft -= Time.deltaTime;
     if (timeLeft <= 0f)
@@ -253,28 +236,13 @@ public class GameScript : MonoBehaviour
     objectToShoot.transform.position = new Vector3(Random.Range(-7f, 7f), -5.5f, 0f);
 
     Rigidbody2D rbody2d = objectToShoot.GetComponent<Rigidbody2D>();
-    
+
     rbody2d.velocity = (new Vector2(Random.Range(-2f, 2f), Random.Range(11f, 15f)));
 
     SoundBank.Play("woosh", transform.position);
   }
 
   private void GameOver()
-  {
-
-  }
-
-  #endregion
-
-  #region Public methods
-
-  public void ShowSettings()
-  {
-    Time.timeScale = 0;
-    settings.SetActive(true);
-  }
-
-  public void BackToMenu()
   {
 
   }
