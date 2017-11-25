@@ -1171,6 +1171,106 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 224640548665209292, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -165
+      objectReference: {fileID: 0}
+    - target: {fileID: 224429529207283024, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -165
+      objectReference: {fileID: 0}
+    - target: {fileID: 224230976775008486, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -265.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224040982106195768, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -265.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224306294913776382, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224949960617005180, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224181851230136600, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.1499939
+      objectReference: {fileID: 0}
+    - target: {fileID: 224238289142688864, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224500460451519428, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 224885048088654412, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 224621012890821582, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -300.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224345924128051864, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 125.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469747397412928, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 224316726205891276, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 224885048088654412, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224621012890821582, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469747397412928, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224500460451519428, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224316726205891276, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224345924128051864, guid: c386db6d73c58d24f875bf141548927f,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c386db6d73c58d24f875bf141548927f, type: 2}
   m_IsPrefabParent: 0
@@ -2559,7 +2659,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
