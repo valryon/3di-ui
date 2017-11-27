@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ca90a4e127fe1ad40a5c1c8055f082af
-timeCreated: 1511606916
+timeCreated: 1511819777
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,9 @@ TextureImporter:
     21300004: UI-Button-Normal
     21300006: UI-Button-Highlight
     21300008: UI-Button-Press
+    21300010: Checkbox
+    21300012: Checkmark-Yes
+    21300014: Checkmark-No
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -167,6 +170,48 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 5, y: 7, z: 7, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Checkbox
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Checkmark-Yes
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 72
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Checkmark-No
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 41
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
